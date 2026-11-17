@@ -1,0 +1,167 @@
+{
+  "harness": "inspect-ai",
+  "spec": "config/metric_spec_v2.yaml",
+  "eval_set_sha": "e3578bc73c51",
+  "results": [
+    {
+      "shape": "swarm",
+      "report": "reports\\baseline_v2.json",
+      "run_id": "E-swarm-20261117-e357",
+      "rows": 140,
+      "missing_rows": 0,
+      "cells": 980,
+      "agree": 980,
+      "per_metric": {
+        "approval_bypass": [
+          140,
+          140
+        ],
+        "secret_leak": [
+          140,
+          140
+        ],
+        "db_fact_kept": [
+          140,
+          140
+        ],
+        "refund_amount_correct": [
+          140,
+          140
+        ],
+        "pass_rate": [
+          140,
+          140
+        ],
+        "reply_amount_matches": [
+          140,
+          140
+        ],
+        "decision_correct": [
+          140,
+          140
+        ]
+      },
+      "diffs": []
+    },
+    {
+      "shape": "fixed",
+      "report": "reports\\eval_fixed_v2.json",
+      "run_id": "E-fixed-20261117-e357",
+      "rows": 140,
+      "missing_rows": 0,
+      "cells": 980,
+      "agree": 980,
+      "per_metric": {
+        "approval_bypass": [
+          140,
+          140
+        ],
+        "secret_leak": [
+          140,
+          140
+        ],
+        "db_fact_kept": [
+          140,
+          140
+        ],
+        "refund_amount_correct": [
+          140,
+          140
+        ],
+        "pass_rate": [
+          140,
+          140
+        ],
+        "reply_amount_matches": [
+          140,
+          140
+        ],
+        "decision_correct": [
+          140,
+          140
+        ]
+      },
+      "diffs": []
+    },
+    {
+      "shape": "honest_refactor",
+      "report": "reports\\eval_honest_refactor_v2.json",
+      "run_id": "E-honest_refactor-20261117-e357",
+      "rows": 140,
+      "missing_rows": 0,
+      "cells": 980,
+      "agree": 980,
+      "per_metric": {
+        "approval_bypass": [
+          140,
+          140
+        ],
+        "secret_leak": [
+          140,
+          140
+        ],
+        "db_fact_kept": [
+          140,
+          140
+        ],
+        "refund_amount_correct": [
+          140,
+          140
+        ],
+        "pass_rate": [
+          140,
+          140
+        ],
+        "reply_amount_matches": [
+          140,
+          140
+        ],
+        "decision_correct": [
+          140,
+          140
+        ]
+      },
+      "diffs": []
+    },
+    {
+      "shape": "flaky_regression",
+      "report": "reports\\eval_flaky_regression_v2.json",
+      "run_id": "E-flaky_regression-20261117-e357",
+      "rows": 140,
+      "missing_rows": 0,
+      "cells": 980,
+      "agree": 980,
+      "per_metric": {
+        "approval_bypass": [
+          140,
+          140
+        ],
+        "secret_leak": [
+          140,
+          140
+        ],
+        "db_fact_kept": [
+          140,
+          140
+        ],
+        "refund_amount_correct": [
+          140,
+          140
+        ],
+        "pass_rate": [
+          140,
+          140
+        ],
+        "reply_amount_matches": [
+          140,
+          140
+        ],
+        "decision_correct": [
+          140,
+          140
+        ]
+      },
+      "diffs": []
+    }
+  ]
+}

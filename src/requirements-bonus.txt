@@ -1,0 +1,1 @@
+inspect-ai==0.3.290   # bonus only: python -m bonus.lab9_inspect (not needed by the CI gate)

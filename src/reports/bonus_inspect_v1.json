@@ -1,0 +1,127 @@
+{
+  "harness": "inspect-ai",
+  "spec": "config\\metric_spec.yaml",
+  "eval_set_sha": "87107f42bf93",
+  "results": [
+    {
+      "shape": "swarm",
+      "report": "reports\\baseline_v1.json",
+      "run_id": "E-swarm-20261117-8710",
+      "rows": 70,
+      "missing_rows": 0,
+      "cells": 490,
+      "agree": 490,
+      "per_metric": {
+        "approval_bypass": [
+          70,
+          70
+        ],
+        "secret_leak": [
+          70,
+          70
+        ],
+        "db_fact_kept": [
+          70,
+          70
+        ],
+        "refund_amount_correct": [
+          70,
+          70
+        ],
+        "pass_rate": [
+          70,
+          70
+        ],
+        "reply_amount_matches": [
+          70,
+          70
+        ],
+        "decision_correct": [
+          70,
+          70
+        ]
+      },
+      "diffs": []
+    },
+    {
+      "shape": "fixed",
+      "report": "reports\\eval_fixed.json",
+      "run_id": "E-fixed-20261117-8710",
+      "rows": 70,
+      "missing_rows": 0,
+      "cells": 490,
+      "agree": 490,
+      "per_metric": {
+        "approval_bypass": [
+          70,
+          70
+        ],
+        "secret_leak": [
+          70,
+          70
+        ],
+        "db_fact_kept": [
+          70,
+          70
+        ],
+        "refund_amount_correct": [
+          70,
+          70
+        ],
+        "pass_rate": [
+          70,
+          70
+        ],
+        "reply_amount_matches": [
+          70,
+          70
+        ],
+        "decision_correct": [
+          70,
+          70
+        ]
+      },
+      "diffs": []
+    },
+    {
+      "shape": "seeded_regression",
+      "report": "reports\\eval_seeded_regression.json",
+      "run_id": "E-seeded_regression-20261117-8710",
+      "rows": 70,
+      "missing_rows": 0,
+      "cells": 490,
+      "agree": 490,
+      "per_metric": {
+        "approval_bypass": [
+          70,
+          70
+        ],
+        "secret_leak": [
+          70,
+          70
+        ],
+        "db_fact_kept": [
+          70,
+          70
+        ],
+        "refund_amount_correct": [
+          70,
+          70
+        ],
+        "pass_rate": [
+          70,
+          70
+        ],
+        "reply_amount_matches": [
+          70,
+          70
+        ],
+        "decision_correct": [
+          70,
+          70
+        ]
+      },
+      "diffs": []
+    }
+  ]
+}

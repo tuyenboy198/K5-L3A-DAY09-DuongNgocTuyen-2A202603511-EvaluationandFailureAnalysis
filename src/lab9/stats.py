@@ -8,7 +8,9 @@ Reference values to self-check are in tests/test_lab9_stats.py.
 from __future__ import annotations
 
 from collections.abc import Sequence
+import math
 from math import comb
+from numbers import Integral, Real
 
 POS = "FAIL"   # the judge's job is to FIND failures, so FAIL is the positive class
 
@@ -87,7 +89,7 @@ def paired_bootstrap(a: Sequence[float], b: Sequence[float], *, n_resamples: int
 def pass_at_k(n: int, c: int, k: int) -> float:
     """Probability that AT LEAST ONE of k trials drawn from n (c of them passing) passes.
     Unbiased estimator (Chen et al. 2021): 1 - C(n-c, k) / C(n, k). Raise ValueError if k > n."""
-    _check_nck(n, c, k)
+    n, c, k = _check_nck(n, c, k)
     return 1.0 - comb(n - c, k) / comb(n, k)
 
 
@@ -95,17 +97,27 @@ def pass_hat_k(n: int, c: int, k: int) -> float:
     """pass^k (tau-bench, Yao et al. 2024): probability that ALL k trials drawn from n pass.
     Unbiased estimator: C(c, k) / C(n, k). Raise ValueError if k > n.
     pass^k <= pass@1 <= pass@k; a reliable agent keeps pass^k close to pass@1."""
-    _check_nck(n, c, k)
+    n, c, k = _check_nck(n, c, k)
     return comb(c, k) / comb(n, k)
 
 
-def _check_nck(n: int, c: int, k: int) -> None:
-    for name, v in (("n", n), ("c", c), ("k", k)):
-        if isinstance(v, bool) or not isinstance(v, int):
-            raise ValueError(f"{name} must be an int, got {v!r}")
+def _as_count(name: str, v) -> int:
+    """Accept any integral count (int, numpy.int64, 5.0); reject bools, fractions, NaN, strings."""
+    if isinstance(v, bool):
+        raise ValueError(f"{name} must be an integer count, got {v!r}")
+    if isinstance(v, Integral):
+        return int(v)
+    if isinstance(v, Real) and math.isfinite(float(v)) and float(v).is_integer():
+        return int(v)
+    raise ValueError(f"{name} must be an integer count, got {v!r}")
+
+
+def _check_nck(n: int, c: int, k: int) -> tuple[int, int, int]:
+    n, c, k = _as_count("n", n), _as_count("c", c), _as_count("k", k)
     if n < 1:
         raise ValueError(f"n must be >= 1, got {n}")
     if not 0 <= c <= n:
         raise ValueError(f"c must be in [0, n], got c={c}, n={n}")
     if not 1 <= k <= n:
         raise ValueError(f"k must be in [1, n], got k={k}, n={n}")
+    return n, c, k

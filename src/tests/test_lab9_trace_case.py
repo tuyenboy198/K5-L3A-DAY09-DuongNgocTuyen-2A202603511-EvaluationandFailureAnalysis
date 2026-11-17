@@ -9,6 +9,18 @@ import pytest
 pytestmark = pytest.mark.student
 
 
+@pytest.fixture(autouse=True)
+def _restore_shapes():
+    """variants.register() adds lab9 shapes to lab8.shapes.SHAPES; undo it so Lab 8's contract
+    tests (exactly four shapes) still see a clean registry in the same pytest process."""
+    from lab8.shapes import SHAPES
+
+    saved = dict(SHAPES)
+    yield
+    SHAPES.clear()
+    SHAPES.update(saved)
+
+
 def _grade(shape: str, claim: str, seed: int):
     from pydantic_evals.evaluators import EvaluatorContext
 
