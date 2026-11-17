@@ -1,0 +1,13 @@
+# Simulated latency per DAG node, in milliseconds. MockLLM measures no latency, so these
+# numbers are an assumption of the bonus, not a measurement. Keys are the node ids that
+# bonus.orchestrator_parallel writes into the trace "schedule" event.
+jitter: 0.2          # each node gets base * (1 ± jitter), fixed by (seed, claim_id, node)
+node_ms:
+  get_claim_view: 20          # orchestrator reads the claim view
+  inv_get_claim_view: 20      # investigator resolves order_id from the handoff's claim_id
+  lookup_order: 60
+  lookup_policy: 45
+  lookup_refund_history: 50
+  compute_compensation: 15    # pure code over the order row and current policy
+  issue_refund: 90            # host write: approval gate, per-order cap, ledger, audit
+  draft: 700                  # one model call that drafts the reply text
